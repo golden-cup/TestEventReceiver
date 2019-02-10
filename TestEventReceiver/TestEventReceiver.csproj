@@ -50,10 +50,17 @@
     <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MyEventReceiver\MyEventReceiver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Features\Feature1\Feature1.feature">
+      <FeatureId>{32f54f9c-c814-440d-998b-0ee61abbc9fa}</FeatureId>
+    </None>
     <None Include="key.snk" />
+    <None Include="MyEventReceiver\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{6d1f9c40-ef2c-47bf-ac56-99ceb5cf959b}</SharePointProjectItemId>
+    </None>
     <None Include="Package\Package.package">
       <PackageId>{00e5a0c4-ac28-4d63-a636-2e7d55b0d271}</PackageId>
     </None>
@@ -61,8 +68,12 @@
       <DependentUpon>Package.package</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Features\" />
+    <Content Include="Features\Feature1\Feature1.Template.xml">
+      <DependentUpon>Feature1.feature</DependentUpon>
+    </Content>
+    <Content Include="MyEventReceiver\Elements.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
